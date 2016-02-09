@@ -4,9 +4,9 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @comments_response = Comment.index_response
+    @comments = Comment.by_post(params[:post_id])
 
-    render json: @comments_response
+    render json: @comments.threaded
   end
 
   # POST /comments

@@ -5,7 +5,8 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  post: one
+  id: 1
+  post_id: 1
   user: one
   content: 'first comment'
 # column: value
@@ -16,3 +17,9 @@ two:
   parent: one
   content: 'second comment'
 #  column: value
+
+nested:
+  post_id: 1
+  parent_id: 1
+  user: two
+  content: 'nested comment'
