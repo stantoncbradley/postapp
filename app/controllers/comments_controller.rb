@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.by_post(params[:post_id]).hash_tree
+    @comments = Comment.by_post_and_root(params[:post_id]).map(&:to_custom_hash)
 
     render json: @comments
   end
