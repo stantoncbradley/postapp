@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160209175617) do
     t.integer  "post_id",    null: false
     t.integer  "user_id",    null: false
     t.integer  "parent_id"
+    t.text     "content",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,7 +41,7 @@ ActiveRecord::Schema.define(version: 20160209175617) do
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.string   "title",      null: false
-    t.string   "content",    null: false
+    t.text     "content",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -13,7 +13,11 @@ class PostsControllerTest < ActionController::TestCase
 
   test "should create post" do
     assert_difference('Post.count') do
-      post :create, post: {  }
+      post :create, post: {
+                    user_id: 1,
+                    title: 'New Post',
+                    content: 'Here is a new post'
+                  }
     end
 
     assert_response 201

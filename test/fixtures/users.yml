@@ -4,8 +4,16 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+one:
+  name: 'First'
+  city: 'San Francisco'
+  created_at: 2010-04-16 16:32:03 -5
+  updated_at: 2010-04-16 16:32:03 -5
 # column: value
 #
-two: {}
+two:
+  name: 'Second'
+  city: 'San Jose'
+  created_at: 2010-04-16 16:32:03 -5
+  updated_at: 2010-04-16 16:32:03 -5
 #  column: value

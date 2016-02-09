@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :update, :destroy]
+  before_action :set_comment, only: [:destroy]
 
   # GET /comments
   # GET /comments.json
@@ -7,12 +7,6 @@ class CommentsController < ApplicationController
     @comments = Comment.by_post(params[:post_id]).map{|c| c.hash_tree}
 
     render json: @comments
-  end
-
-  # GET /comments/1
-  # GET /comments/1.json
-  def show
-    render json: @comment
   end
 
   # POST /comments
@@ -27,17 +21,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /comments/1
-  # PATCH/PUT /comments/1.json
-  def update
-    @comment = Comment.find(params[:id])
-
-    if @comment.update(comment_params)
-      head :no_content
-    else
-      render json: @comment.errors, status: :unprocessable_entity
-    end
-  end
 
   # DELETE /comments/1
   # DELETE /comments/1.json
@@ -54,6 +37,6 @@ class CommentsController < ApplicationController
     end
 
     def comment_params
-      params[:comment]
+      params[:comment].permit(:user_id, :post_id, :parent_id, :content)
     end
 end

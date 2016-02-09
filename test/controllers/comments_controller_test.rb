@@ -13,20 +13,14 @@ class CommentsControllerTest < ActionController::TestCase
 
   test "should create comment" do
     assert_difference('Comment.count') do
-      post :create, comment: {  }
+      post :create, comment: {
+                    post_id: 2,
+                    user_id: 2,
+                    content: 'nice post'
+                  }
     end
 
     assert_response 201
-  end
-
-  test "should show comment" do
-    get :show, id: @comment
-    assert_response :success
-  end
-
-  test "should update comment" do
-    put :update, id: @comment, comment: {  }
-    assert_response 204
   end
 
   test "should destroy comment" do

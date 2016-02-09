@@ -28,6 +28,6 @@ class ImagesController < ApplicationController
     end
 
     def image_params
-      params[:image]
+      params[:image].permit(:post_id, :image_url)
     end
 end

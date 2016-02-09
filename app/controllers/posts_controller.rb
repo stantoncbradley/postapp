@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all.includes(:user, :images).order(created_at: :desc)
 
-    render json: @posts.to_json(include: {:user, :images})
+    render json: @posts.to_json(include: {user: {}, images: {}})
   end
 
   # GET /posts/1
@@ -54,6 +54,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params[:post]
+      params[:post].permit(:user_id, :title, :content)
     end
 end

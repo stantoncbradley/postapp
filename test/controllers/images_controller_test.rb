@@ -5,28 +5,15 @@ class ImagesControllerTest < ActionController::TestCase
     @image = images(:one)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:images)
-  end
-
   test "should create image" do
     assert_difference('Image.count') do
-      post :create, image: {  }
+      post :create, image: {
+                    post_id: 1,
+                    image_url: 'www.new_url.com'
+                  }
     end
 
     assert_response 201
-  end
-
-  test "should show image" do
-    get :show, id: @image
-    assert_response :success
-  end
-
-  test "should update image" do
-    put :update, id: @image, image: {  }
-    assert_response 204
   end
 
   test "should destroy image" do

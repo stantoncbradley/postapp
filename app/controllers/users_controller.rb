@@ -54,6 +54,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params[:user]
+      params[:user].permit(:name, :city)
     end
 end
