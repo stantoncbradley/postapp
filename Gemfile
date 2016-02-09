@@ -7,6 +7,7 @@ gem 'rails-api'
 
 gem 'spring', :group => :development
 
+# for threaded comments
 gem 'closure_tree'
 
 

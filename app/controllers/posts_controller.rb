@@ -4,9 +4,9 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.includes(:user, :images).order(created_at: :desc)
+    @posts = Post.with_comments_and_images
 
-    render json: @posts.to_json(include: {user: {}, images: {}})
+    render json: @posts.index_response
   end
 
   # GET /posts/1

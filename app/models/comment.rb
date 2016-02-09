@@ -6,6 +6,8 @@ class Comment < ActiveRecord::Base
 
   acts_as_tree order: 'created_at DESC'
 
-
+  def self.threaded
+    all.map{|c| c.hash_tree}
+  end
 
 end
