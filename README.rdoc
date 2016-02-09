@@ -7,7 +7,6 @@ Most of the app development was straightforward.
 Functional controller tests can be run by calling ```rake test```
 
 I used the closure_tree gem (https://github.com/mceachen/closure_tree) for nested comments.
-I spent a decent amount of time getting the comments to render correctly.  They render correctly now.
 
 Endpoints should all work as expected.
 
@@ -15,7 +14,8 @@ Endpoints should all work as expected.
 NEXT STEPS
 I need to add validation methods and unit tests testing for validity to all the models.
 This is straight forward and will not take long.
-I need to add unit tests to my recursive comment.to_custom_hash method
+I need to add unit tests to my recursive comment.to_custom_hash method.
+Post required custom JSON. I looked into a general solution for this but didn't have time to implement one.
 
 While the tools a used for this example get the job done, were this a serious project I would upgrade to the following:
 Postgres database
