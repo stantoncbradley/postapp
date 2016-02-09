@@ -1,28 +1,23 @@
-== README
+Postapp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app was developed using the Rails Api gem and basic scaffolding.
+It uses Rails' built in test suite and SQLite.
 
-Things you may want to cover:
+Most of the app development was straightforward.
+Functional controller tests can be run by calling ```rake test```
 
-* Ruby version
+I used the closure_tree gem (https://github.com/mceachen/closure_tree) for nested comments.
+I spent a decent amount of time getting the comments to render correctly.  They render correctly now.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Endpoints should all work as expected.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+NEXT STEPS
+I need to add validation methods and unit tests testing for validity to all the models.
+This is straight forward and will not take long.
+I need to add unit tests to my recursive comment.to_custom_hash method
+
+While the tools a used for this example get the job done, were this a serious project I would upgrade to the following:
+Postgres database
+RSpec for testing
+FactoryGirl for mock data generation
