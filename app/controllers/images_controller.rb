@@ -1,8 +1,6 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:destroy]
 
-  # POST /images
-  # POST /images.json
   def create
     @image = Image.new(image_params)
 
@@ -13,8 +11,6 @@ class ImagesController < ApplicationController
     end
   end
 
-  # DELETE /images/1
-  # DELETE /images/1.json
   def destroy
     @image.destroy
 

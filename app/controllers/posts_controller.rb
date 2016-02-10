@@ -9,14 +9,10 @@ class PostsController < ApplicationController
     render json: @posts.index_response
   end
 
-  # GET /posts/1
-  # GET /posts/1.json
   def show
     render json: @post
   end
 
-  # POST /posts
-  # POST /posts.json
   def create
     @post = Post.new(post_params)
 
@@ -27,8 +23,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /posts/1
-  # PATCH/PUT /posts/1.json
   def update
     @post = Post.find(params[:id])
 
@@ -39,8 +33,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
   def destroy
     @post.destroy
 

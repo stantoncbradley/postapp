@@ -1,16 +1,12 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:destroy]
 
-  # GET /comments
-  # GET /comments.json
   def index
     @comments = Comment.by_post_and_root(params[:post_id]).map(&:to_custom_hash)
 
     render json: @comments
   end
 
-  # POST /comments
-  # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
 
@@ -21,9 +17,6 @@ class CommentsController < ApplicationController
     end
   end
 
-
-  # DELETE /comments/1
-  # DELETE /comments/1.json
   def destroy
     @comment.destroy
 

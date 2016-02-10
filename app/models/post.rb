@@ -3,6 +3,9 @@ class Post < ActiveRecord::Base
   has_many :comments
   has_many :images
 
+  validates_presence_of :title, :content
+  validates_numericality_of :user_id
+
   def self.with_comments_and_images
     all.includes(:user, :images).order(created_at: :desc)
   end

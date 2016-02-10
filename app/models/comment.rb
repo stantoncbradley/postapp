@@ -7,6 +7,9 @@ class Comment < ActiveRecord::Base
 
   acts_as_tree order: 'created_at DESC'
 
+  validates_presence_of :content
+  validates_numericality_of :post_id, :user_id, greater_tha: 1
+
   def self.by_post_and_root(post_id)
     by_post(post_id).by_root
   end
