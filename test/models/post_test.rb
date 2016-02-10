@@ -3,8 +3,12 @@ require 'test_helper'
 class PostTest < ActiveSupport::TestCase
 
   def setup
+    user = User.create!({
+      name: "Fly",
+      city: "Oakland"
+    })
     @post = Post.new({
-                             user_id: 1,
+                             user_id: user.id,
                              title: "Ruby is great",
                              content: "It is very powerful."
                            })
@@ -30,4 +34,19 @@ class PostTest < ActiveSupport::TestCase
     @post.content = ''
     assert_not @post.save
   end
+
+  # Test convert_to_hash
+
+  test "should return expected hash" do
+    @post.save!
+    expected = {
+      id: @post.id,
+      title: @post.title,
+      author_name: @post.user.name,
+      author_city: @post.user.city,
+      images: []
+    }
+    assert_equal expected, @post.convert_to_hash
+  end
+
 end

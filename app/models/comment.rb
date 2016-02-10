@@ -8,7 +8,7 @@ class Comment < ActiveRecord::Base
   acts_as_tree order: 'created_at DESC'
 
   validates_presence_of :content
-  validates_numericality_of :post_id, :user_id, greater_tha: 1
+  validates_numericality_of :post_id, :user_id, greater_than: 0
 
   def self.by_post_and_root(post_id)
     by_post(post_id).by_root
@@ -16,7 +16,7 @@ class Comment < ActiveRecord::Base
 
   def to_custom_hash
     responses = children.map { |ea| ea.to_custom_hash }
-    {id: self.id, user_id: self.user.id, content: self.content, comments: responses}
+    {id: self.id, user_id: self.user_id, content: self.content, comments: responses}
   end
 
 end
