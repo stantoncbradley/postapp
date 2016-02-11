@@ -12,6 +12,7 @@ Post required custom JSON. I looked into a general solution for this but didn't 
 Getting nested comments is slow!  Look into eager loading/optimizing these queries
 Add more tests!  More functional tests checking response content
 More tests for nested comments
+Add report endpoint
 
 While the tools a used for this example get the job done, were this a serious project I would upgrade to the following:
 Postgres database
